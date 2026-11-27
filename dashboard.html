@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayTrack | Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-layout">
+
+        <!-- SIDEBAR: links move to sections on this dashboard page. -->
+        <aside class="sidebar">
+            <a class="sidebar-brand" href="#overview">
+                <span class="brand-mark small-mark">PT</span>
+                <span>PayTrack</span>
+            </a>
+
+            <p class="sidebar-label">MAIN MENU</p>
+            <nav class="sidebar-nav">
+                <a href="#overview">Dashboard</a>
+                <a href="#employees">Employee Records</a>
+                <a href="#payroll">Payroll Summary</a>
+                <a href="#deductions">Deductions</a>
+            </nav>
+
+            <!-- LOGOUT: returns the user to the login page. -->
+            <a class="logout-link" href="index.html">Log out</a>
+        </aside>
+
+        <!-- DASHBOARD CONTENT: sample payroll information for the project. -->
+        <main class="dashboard-main">
+            <header class="page-heading" id="overview">
+                <div>
+                    <p class="eyebrow">PAYROLL MANAGEMENT SYSTEM</p>
+                    <h1>Dashboard</h1>
+                    <p>Welcome to the PayTrack payroll overview.</p>
+                </div>
+                <span class="period-label">PAYROLL OVERVIEW</span>
+            </header>
+
+            <section class="content-section">
+                <h2>Payroll Overview</h2>
+                <p class="section-note">Sample figures for demonstration only.</p>
+
+                <!-- SUMMARY CARDS: quick view of the payroll totals. -->
+                <div class="summary-cards">
+                    <article class="summary-card">
+                        <p>Total Employees</p>
+                        <h3>24</h3>
+                    </article>
+                    <article class="summary-card">
+                        <p>Gross Payroll</p>
+                        <h3>₱480,000</h3>
+                    </article>
+                    <article class="summary-card">
+                        <p>Total Deductions</p>
+                        <h3>₱52,000</h3>
+                    </article>
+                    <article class="summary-card">
+                        <p>Net Payroll</p>
+                        <h3>₱428,000</h3>
+                    </article>
+                </div>
+            </section>
+
+            <section class="content-section" id="employees">
+                <h2>Employee Records</h2>
+                <p class="section-note">Example employee information.</p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Employee ID</th>
+                                <th>Employee Name</th>
+                                <th>Department</th>
+                                <th>Position</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>EMP-001</td>
+                                <td>Alex Santos</td>
+                                <td>Administration</td>
+                                <td>Office Staff</td>
+                            </tr>
+                            <tr>
+                                <td>EMP-002</td>
+                                <td>Jamie Cruz</td>
+                                <td>Finance</td>
+                                <td>Accountant</td>
+                            </tr>
+                            <tr>
+                                <td>EMP-003</td>
+                                <td>Sam Reyes</td>
+                                <td>Information Technology</td>
+                                <td>IT Assistant</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="content-section" id="payroll">
+                <h2>Payroll Summary</h2>
+                <p class="section-note">Sample salary summary for selected employees.</p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Employee</th>
+                                <th>Basic Salary</th>
+                                <th>Allowances</th>
+                                <th>Net Pay</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Alex Santos</td>
+                                <td>₱18,000</td>
+                                <td>₱2,000</td>
+                                <td>₱18,500</td>
+                            </tr>
+                            <tr>
+                                <td>Jamie Cruz</td>
+                                <td>₱22,000</td>
+                                <td>₱1,500</td>
+                                <td>₱21,000</td>
+                            </tr>
+                            <tr>
+                                <td>Sam Reyes</td>
+                                <td>₱16,000</td>
+                                <td>₱1,000</td>
+                                <td>₱15,500</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="content-section" id="deductions">
+                <h2>Common Deductions</h2>
+                <div class="deduction-list">
+                    <div class="deduction-item">
+                        <strong>SSS</strong>
+                        <span>Social Security contribution</span>
+                    </div>
+                    <div class="deduction-item">
+                        <strong>PhilHealth</strong>
+                        <span>Health insurance contribution</span>
+                    </div>
+                    <div class="deduction-item">
+                        <strong>Pag-IBIG</strong>
+                        <span>Housing savings contribution</span>
+                    </div>
+                    <div class="deduction-item">
+                        <strong>Withholding Tax</strong>
+                        <span>Applicable income tax</span>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="dashboard-footer">
+                PayTrack Payroll Management System
+            </footer>
+        </main>
+    </div>
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-/* Basic page style */
+/* GENERAL: basic styles shared by the login and dashboard pages. */
 * {
     box-sizing: border-box;
 }
@@ -6,215 +6,365 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: ivory;
-    color: black;
+    color: #243247;
+    background: #f3f5f8;
     line-height: 1.5;
 }
 
-/* Header */
-header {
-    background: navy;
-    color: white;
-    padding: 18px 8%;
-}
-
-.header-content {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.header-content img {
-    width: 70px;
-    height: 70px;
-    border: 3px solid gold;
-    border-radius: 50%;
-}
-
-.header-content p,
-.header-content h1 {
-    margin: 0;
-}
-
-.header-content h1 {
-    color: gold;
-    font-size: 25px;
-}
-
-/* Navigation */
-nav {
-    background: darkred;
-    padding: 12px;
-    text-align: center;
-}
-
-nav a {
-    display: inline-block;
-    margin: 5px 12px;
-    color: white;
+a {
     text-decoration: none;
-    font-weight: bold;
 }
 
-nav a:hover {
-    color: gold;
+/* LOGIN PAGE: centers the login box on the screen. */
+.login-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #eef2f6;
 }
 
-/* Welcome section */
-.welcome {
-    position: relative;
-    padding: 45px 8% 30px;
-    background: navy;
-    color: white;
-    text-align: center;
-}
-
-.welcome h2 {
-    margin: 0 0 8px;
-    color: gold;
-    font-size: 30px;
-}
-
-.welcome p {
-    margin: 0 0 20px;
-}
-
-.welcome-label {
-    position: absolute;
-    top: 10px;
-    right: 8%;
-    padding: 4px 10px;
-    background: gold;
-    color: navy;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.campus-banner {
-    display: block;
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-    margin: auto;
-    border: 3px solid white;
-}
-
-/* Main sections */
-.section {
-    padding: 35px 8%;
-    text-align: center;
-}
-
-.section h2 {
-    color: navy;
-}
-
-.section-description {
-    color: slategray;
-}
-
-.about {
-    background: white;
-}
-
-.about p {
-    max-width: 800px;
-    margin: auto;
-}
-
-/* News, services, and event cards */
-.card-container {
+.login-page {
+    flex: 1;
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+    align-items: center;
+    padding: 30px 15px;
 }
 
-.card {
-    width: 280px;
-    padding: 18px;
-    border: 1px solid lightgray;
-    border-top: 4px solid darkred;
+.login-card {
+    width: 100%;
+    max-width: 390px;
+    padding: 35px;
     background: white;
+    border: 1px solid #dce2e9;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.brand-mark {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #174a3a;
+    color: white;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.eyebrow {
+    margin: 0 0 6px;
+    color: #527365;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.login-card h1 {
+    margin: 0;
+    color: #174a3a;
+    font-size: 32px;
+}
+
+.login-description {
+    margin: 8px 0 25px;
+    color: #687586;
+}
+
+.login-card form {
     text-align: left;
 }
 
-.card h3 {
-    margin-top: 0;
-    color: navy;
-}
-
-.services {
-    background: lightgray;
-}
-
-.services .card {
-    border-top-color: gold;
-}
-
-.event-note {
-    margin-top: 12px;
-    color: darkred;
+.login-card label {
+    display: block;
+    margin: 14px 0 6px;
     font-weight: bold;
 }
 
-/* Footer */
-footer {
-    padding: 20px;
-    background: navy;
+.login-card input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd4dc;
+    border-radius: 5px;
+    font: inherit;
+}
+
+.login-card button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 12px;
+    border: 0;
+    border-radius: 5px;
+    background: #174a3a;
     color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-card button:hover {
+    background: #23634e;
+}
+
+.login-note,
+.login-footer {
+    color: #788596;
+    font-size: 13px;
+}
+
+.login-note {
+    margin: 20px 0 0;
+}
+
+.login-footer {
+    padding: 16px;
     text-align: center;
 }
 
-footer p {
-    margin: 4px;
+/* DASHBOARD SIDEBAR: fixed keeps it visible while the page scrolls. */
+.dashboard-layout {
+    min-height: 100vh;
 }
 
-/* Fixed button stays visible while scrolling */
-.back-to-top {
+.sidebar {
     position: fixed;
-    right: 15px;
-    bottom: 15px;
-    padding: 8px 13px;
-    border: 2px solid gold;
-    border-radius: 50%;
-    background: darkred;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 100vh;
+    padding: 24px 18px;
+    display: flex;
+    flex-direction: column;
+    background: #174a3a;
     color: white;
-    text-decoration: none;
 }
 
-/* Mobile layout */
-@media (max-width: 600px) {
-    header {
-        padding: 15px 5%;
-    }
+.sidebar-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
 
-    .header-content img {
-        width: 60px;
-        height: 60px;
-    }
+.small-mark {
+    width: 38px;
+    height: 38px;
+    margin: 0;
+    background: white;
+    color: #174a3a;
+    font-size: 15px;
+}
 
-    .header-content h1 {
-        font-size: 19px;
-    }
+.sidebar-label {
+    margin: 35px 0 10px;
+    color: #c2d5cd;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
 
-    .welcome {
-        padding: 65px 5% 25px;
-    }
+.sidebar-nav a,
+.logout-link {
+    display: block;
+    padding: 11px 10px;
+    color: white;
+    border-radius: 5px;
+}
 
-    .welcome-label {
-        right: 5%;
-    }
+.sidebar-nav a:hover,
+.logout-link:hover {
+    background: #28634f;
+}
 
-    .welcome h2 {
-        font-size: 24px;
-    }
+.logout-link {
+    margin-top: auto;
+    border-top: 1px solid #477665;
+    border-radius: 0;
+    padding-top: 18px;
+}
 
-    .section {
-        padding: 30px 5%;
-    }
+/* MAIN CONTENT: left margin prevents the sidebar from covering the page. */
+.dashboard-main {
+    margin-left: 230px;
+    padding: 32px;
+}
 
-    .card {
+/* POSITIONING EXAMPLE: relative is the reference for the absolute label. */
+.page-heading {
+    position: relative;
+    margin-bottom: 30px;
+    padding: 28px;
+    background: white;
+    border: 1px solid #e0e5ec;
+    border-radius: 8px;
+}
+
+.page-heading h1 {
+    margin: 0;
+    color: #174a3a;
+    font-size: 30px;
+}
+
+.page-heading p:last-child {
+    margin-bottom: 0;
+    color: #687586;
+}
+
+.period-label {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    padding: 6px 10px;
+    background: #e8f0ec;
+    color: #174a3a;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.content-section {
+    margin-bottom: 28px;
+}
+
+.content-section h2 {
+    margin-bottom: 5px;
+    color: #174a3a;
+    font-size: 21px;
+}
+
+.section-note {
+    margin-top: 0;
+    color: #788596;
+    font-size: 14px;
+}
+
+/* SUMMARY CARDS: flex places the payroll totals in one row. */
+.summary-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.summary-card {
+    flex: 1;
+    min-width: 150px;
+    padding: 20px;
+    background: white;
+    border: 1px solid #e0e5ec;
+    border-left: 4px solid #5c927b;
+    border-radius: 6px;
+}
+
+.summary-card p {
+    margin: 0;
+    color: #687586;
+}
+
+.summary-card h3 {
+    margin: 8px 0 0;
+    color: #174a3a;
+    font-size: 25px;
+}
+
+/* TABLES: used for employee records and payroll details. */
+.table-container {
+    overflow-x: auto;
+    background: white;
+    border: 1px solid #e0e5ec;
+    border-radius: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 13px 15px;
+    border-bottom: 1px solid #e8ecf1;
+}
+
+th {
+    background: #e8f0ec;
+    color: #174a3a;
+}
+
+.deduction-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.deduction-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 16px;
+    background: white;
+    border: 1px solid #e0e5ec;
+    border-radius: 6px;
+}
+
+.deduction-item strong,
+.deduction-item span {
+    display: block;
+}
+
+.deduction-item strong {
+    color: #174a3a;
+}
+
+.deduction-item span {
+    margin-top: 4px;
+    color: #788596;
+    font-size: 13px;
+}
+
+.dashboard-footer {
+    padding: 20px 0;
+    color: #788596;
+    font-size: 13px;
+}
+
+/* MOBILE: sidebar moves above the dashboard content on narrow screens. */
+@media (max-width: 700px) {
+    .sidebar {
+        position: static;
         width: 100%;
+        height: auto;
+    }
+
+    .sidebar-label {
+        margin-top: 20px;
+    }
+
+    .sidebar-nav {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .logout-link {
+        margin-top: 12px;
+    }
+
+    .dashboard-main {
+        margin-left: 0;
+        padding: 18px;
+    }
+
+    .period-label {
+        position: static;
+        display: inline-block;
+        margin-top: 12px;
+    }
+
+    .login-card {
+        padding: 28px 22px;
     }
 }
