@@ -10,7 +10,7 @@
 ## Visual identity
 **Brand color:** Forest green #174A3A, retained from the existing PayTrack identity and used for navigation and primary actions.
 
-**Neutrals:** Page #F3F6F4; surface #FFFFFF; main text #1D2D26; secondary text #52645B; borders #D7E1DA. Text combinations are checked for WCAG AA normal-text contrast (4.5:1).
+**Neutrals:** Page #F3F6F4; surface #FFFFFF; main text #1D2D26; secondary text #52645B; borders #D7E1DA. Text combinations are checked for WCAG AA normal-text contrast (4.5:1). Input borders and keyboard focus indicators use stronger contrast; focus colors differ between light surfaces and the green navigation panels.
 
 ## Typography
 Tahoma with Arial, sans-serif fallbacks. One familiar sans-serif family keeps the interface readable and the CSS straightforward. Monetary values use tabular numerals when added later.

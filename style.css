@@ -8,7 +8,8 @@
     --muted: #52645b;
     --line: #d7e1da;
     --soft: #e8efea;
-    --focus: #d79a32;
+    --focus: #174a3a;
+    --focus-dark: #f6c75e;
     --space-1: 4px;
     --space-2: 8px;
     --space-3: 12px;
@@ -49,6 +50,11 @@ button:focus-visible,
 input:focus-visible {
     outline: 3px solid var(--focus);
     outline-offset: 3px;
+}
+
+.login-intro a:focus-visible,
+.sidebar a:focus-visible {
+    outline-color: var(--focus-dark);
 }
 
 ::selection {
@@ -213,14 +219,14 @@ input:focus-visible {
     width: 100%;
     min-height: 48px;
     padding: 11px 13px;
-    border: 1px solid #b8c8be;
+    border: 1px solid #748e7e;
     border-radius: 4px;
     color: var(--ink);
     background: var(--surface);
 }
 
 .form-field input::placeholder {
-    color: #64756c;
+    color: #5f6e65;
     opacity: 1;
 }
 
@@ -550,6 +556,9 @@ td {
 }
 
 .dashboard-footer a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
     color: var(--green);
     font-weight: 700;
     text-decoration: underline;
