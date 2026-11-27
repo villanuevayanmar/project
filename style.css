@@ -289,6 +289,10 @@ input:focus-visible {
     background: var(--green);
 }
 
+.sidebar-brand {
+    min-height: 44px;
+}
+
 .sidebar-mark {
     width: 38px;
     height: 38px;

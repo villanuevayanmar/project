@@ -5,7 +5,7 @@
 
 **Primary job:** Present employee records and payroll status in a clear register, with the required login → dashboard → logout flow.
 
-**Product claim:** PayTrack is a classroom payroll-interface prototype with an empty employee register and no configured pay run. It demonstrates the page structure, not payroll processing.
+**Headline claim:** “PayTrack starts with an empty employee register.” The interface also makes clear that no pay period is configured and no payroll figures are calculated. It is a classroom prototype, not payroll processing software.
 
 ## Visual identity
 **Brand color:** Forest green #174A3A, retained from the existing PayTrack identity and used for navigation and primary actions.
