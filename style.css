@@ -630,6 +630,8 @@ td {
     }
 
     .page-heading {
+        flex-direction: column;
+        gap: 12px;
         margin-bottom: 36px;
         padding: 0 0 22px;
     }
@@ -648,6 +650,27 @@ td {
 
     .section-context {
         text-align: left;
+    }
+
+    .table-shell table {
+        min-width: 0;
+        table-layout: fixed;
+    }
+
+    .table-shell th {
+        padding: 12px 6px;
+        font-size: 9px;
+        overflow-wrap: anywhere;
+    }
+
+    .empty-state {
+        min-height: 120px;
+        padding: 20px 16px;
+        gap: 12px;
+    }
+
+    .empty-state p {
+        font-size: 11px;
     }
 
     .payroll-empty {
