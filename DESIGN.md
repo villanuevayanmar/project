@@ -16,7 +16,7 @@
 Tahoma with Arial, sans-serif fallbacks. One familiar sans-serif family keeps the interface readable and the CSS straightforward. Monetary values use tabular numerals when added later.
 
 ## Layout and spacing
-Spacing scale: 4, 8, 12, 16, 24, 32, 48px. Radii: 4px for controls and 8px for major surfaces. Desktop uses a fixed navigation rail and a wide record area; mobile moves navigation above the content. The employee register receives more space than secondary status information.
+Spacing scale: 4, 8, 12, 16, 24, 32, 48px, with larger page spacing fluidly adjusted for screen width. Radius scale: 0px for ledger and data surfaces; 4px for form controls and navigation links. Desktop uses a fixed navigation rail and a wide record area; mobile moves navigation above the content. The employee register receives more space than secondary status information.
 
 ## Icons
 No decorative icons or emoji. Navigation and actions use visible text labels.
