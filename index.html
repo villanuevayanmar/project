@@ -3,39 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PayTrack | Login</title>
+    <meta name="description" content="PayTrack is a static classroom prototype of a payroll-management interface.">
+    <title>PayTrack — Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="login-body">
 
-    <!-- LOGIN PAGE: the form opens the dashboard when both fields are filled in. -->
-    <main class="login-page">
-        <section class="login-card">
-            <div class="brand-mark">PT</div>
+    <main class="login-layout">
+        <!-- INTRODUCTION: explains what this classroom prototype contains. -->
+        <section class="login-intro" aria-labelledby="intro-title">
+            <a class="brand-lockup" href="index.html" aria-label="PayTrack home">
+                <span class="brand-mark" aria-hidden="true">PT</span>
+                <span>PayTrack</span>
+            </a>
 
-            <p class="eyebrow">PAYROLL MANAGEMENT SYSTEM</p>
-            <h1>PayTrack</h1>
-            <p class="login-description">Manage employee payroll information in one place.</p>
+            <div class="intro-copy">
+                <p class="eyebrow">PAYROLL MANAGEMENT SYSTEM</p>
+                <h1 id="intro-title">A payroll workspace built around the records.</h1>
+                <p>PayTrack is a classroom prototype for viewing employee records and payroll summaries. It currently contains no real payroll data.</p>
+            </div>
 
-            <form action="dashboard.html" method="get">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username"
-                       placeholder="Enter your username" required>
+            <!-- PAGE FLOW: the three steps required for the finals activity. -->
+            <ol class="page-flow">
+                <li><span>01</span>Login</li>
+                <li><span>02</span>Dashboard</li>
+                <li><span>03</span>Log out</li>
+            </ol>
 
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password"
-                       placeholder="Enter your password" required>
+            <p class="intro-footnote">Static demonstration · HTML and CSS only</p>
+        </section>
 
-                <button type="submit">Login</button>
-            </form>
+        <!-- LOGIN FORM: required fields lead to the dashboard preview. -->
+        <section class="login-panel" aria-labelledby="login-title">
+            <div class="login-form-wrap">
+                <p class="form-kicker">ACCOUNT ACCESS</p>
+                <h2 id="login-title">Open the dashboard</h2>
+                <p class="form-description">Enter any username and password to continue to the preview. This page does not verify accounts.</p>
 
-            <p class="login-note">Payroll system demonstration</p>
+                <form class="login-form" action="dashboard.html" method="get">
+                    <div class="form-field">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" placeholder="Enter a username" autocomplete="off" required>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter a password" autocomplete="off" required>
+                    </div>
+
+                    <button type="submit">Login</button>
+                </form>
+
+                <p class="form-notice"><strong>Prototype note</strong> Both fields must be filled in, but no account is checked and the entries are not saved.</p>
+            </div>
+            <footer class="login-footer">PayTrack · Payroll interface prototype</footer>
         </section>
     </main>
-
-    <footer class="login-footer">
-        PayTrack Payroll Management System
-    </footer>
 
 </body>
 </html>

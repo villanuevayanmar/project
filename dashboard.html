@@ -3,171 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PayTrack | Dashboard</title>
+    <meta name="description" content="PayTrack payroll workspace preview with empty employee and payroll records.">
+    <title>PayTrack — Payroll desk</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="dashboard-body">
 
-    <div class="dashboard-layout">
+    <!-- SIDEBAR: fixed on desktop and moved above the page on mobile. -->
+    <aside class="sidebar">
+        <a class="sidebar-brand" href="#overview" aria-label="PayTrack dashboard">
+            <span class="brand-mark sidebar-mark" aria-hidden="true">PT</span>
+            <span>PayTrack</span>
+        </a>
+        <p class="sidebar-caption">PAYROLL RECORDS</p>
 
-        <!-- SIDEBAR: links move to sections on this dashboard page. -->
-        <aside class="sidebar">
-            <a class="sidebar-brand" href="#overview">
-                <span class="brand-mark small-mark">PT</span>
-                <span>PayTrack</span>
-            </a>
+        <nav class="sidebar-nav" aria-label="Dashboard sections">
+            <a href="#overview">Overview</a>
+            <a href="#employees">Employee register</a>
+            <a href="#payroll">Payroll run</a>
+            <a href="#rules">Payroll rules</a>
+            <a href="#limits">Prototype limits</a>
+        </nav>
 
-            <p class="sidebar-label">MAIN MENU</p>
-            <nav class="sidebar-nav">
-                <a href="#overview">Dashboard</a>
-                <a href="#employees">Employee Records</a>
-                <a href="#payroll">Payroll Summary</a>
-                <a href="#deductions">Deductions</a>
-            </nav>
+        <!-- LOGOUT: returns to the login page. -->
+        <a class="logout-link" href="index.html">Log out</a>
+    </aside>
 
-            <!-- LOGOUT: returns the user to the login page. -->
-            <a class="logout-link" href="index.html">Log out</a>
-        </aside>
+    <!-- MAIN CONTENT: only project facts are shown; no sample payroll data. -->
+    <main class="dashboard-main">
+        <header class="page-heading" id="overview">
+            <div>
+                <p class="breadcrumb">PayTrack / Dashboard</p>
+                <h1>Payroll desk</h1>
+                <p class="page-summary">A record-first view of the payroll workspace. This project currently has no employee records or configured pay run.</p>
+            </div>
+            <p class="project-stamp">STATIC CLASSROOM PROTOTYPE</p>
+        </header>
 
-        <!-- DASHBOARD CONTENT: sample payroll information for the project. -->
-        <main class="dashboard-main">
-            <header class="page-heading" id="overview">
+        <!-- EMPLOYEE REGISTER: a real empty state replaces fictional employees. -->
+        <section class="content-section register-section" id="employees" aria-labelledby="employees-title">
+            <div class="section-heading">
                 <div>
-                    <p class="eyebrow">PAYROLL MANAGEMENT SYSTEM</p>
-                    <h1>Dashboard</h1>
-                    <p>Welcome to the PayTrack payroll overview.</p>
+                    <p class="section-number">01 / RECORDS</p>
+                    <h2 id="employees-title">Employee register</h2>
                 </div>
-                <span class="period-label">PAYROLL OVERVIEW</span>
-            </header>
+                <p class="section-context">0 employee records in this demonstration</p>
+            </div>
 
-            <section class="content-section">
-                <h2>Payroll Overview</h2>
-                <p class="section-note">Sample figures for demonstration only.</p>
+            <div class="table-shell">
+                <table>
+                    <thead>
+                        <tr>
+                            <th scope="col">Employee ID</th>
+                            <th scope="col">Employee name</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Employment status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4">
+                                <div class="empty-state" role="status">
+                                    <span class="empty-rule" aria-hidden="true"></span>
+                                    <div>
+                                        <h3>No employee records yet</h3>
+                                        <p>No names, employee IDs, departments, or employment details have been added to this project.</p>
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
 
-                <!-- SUMMARY CARDS: quick view of the payroll totals. -->
-                <div class="summary-cards">
-                    <article class="summary-card">
-                        <p>Total Employees</p>
-                        <h3>24</h3>
-                    </article>
-                    <article class="summary-card">
-                        <p>Gross Payroll</p>
-                        <h3>₱480,000</h3>
-                    </article>
-                    <article class="summary-card">
-                        <p>Total Deductions</p>
-                        <h3>₱52,000</h3>
-                    </article>
-                    <article class="summary-card">
-                        <p>Net Payroll</p>
-                        <h3>₱428,000</h3>
-                    </article>
+        <!-- PAYROLL RUN: no fabricated pay period or calculated totals. -->
+        <section class="content-section payroll-section" id="payroll" aria-labelledby="payroll-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-number">02 / PAY RUN</p>
+                    <h2 id="payroll-title">Payroll run</h2>
                 </div>
-            </section>
+                <p class="section-context">No pay period configured</p>
+            </div>
 
-            <section class="content-section" id="employees">
-                <h2>Employee Records</h2>
-                <p class="section-note">Example employee information.</p>
-
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Employee ID</th>
-                                <th>Employee Name</th>
-                                <th>Department</th>
-                                <th>Position</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>EMP-001</td>
-                                <td>Alex Santos</td>
-                                <td>Administration</td>
-                                <td>Office Staff</td>
-                            </tr>
-                            <tr>
-                                <td>EMP-002</td>
-                                <td>Jamie Cruz</td>
-                                <td>Finance</td>
-                                <td>Accountant</td>
-                            </tr>
-                            <tr>
-                                <td>EMP-003</td>
-                                <td>Sam Reyes</td>
-                                <td>Information Technology</td>
-                                <td>IT Assistant</td>
-                            </tr>
-                        </tbody>
-                    </table>
+            <div class="payroll-empty">
+                <div class="payroll-empty-copy">
+                    <h3>There is no payroll run to review.</h3>
+                    <p>Gross pay, deductions, and net pay are not calculated in this HTML and CSS prototype.</p>
                 </div>
-            </section>
-
-            <section class="content-section" id="payroll">
-                <h2>Payroll Summary</h2>
-                <p class="section-note">Sample salary summary for selected employees.</p>
-
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Employee</th>
-                                <th>Basic Salary</th>
-                                <th>Allowances</th>
-                                <th>Net Pay</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Alex Santos</td>
-                                <td>₱18,000</td>
-                                <td>₱2,000</td>
-                                <td>₱18,500</td>
-                            </tr>
-                            <tr>
-                                <td>Jamie Cruz</td>
-                                <td>₱22,000</td>
-                                <td>₱1,500</td>
-                                <td>₱21,000</td>
-                            </tr>
-                            <tr>
-                                <td>Sam Reyes</td>
-                                <td>₱16,000</td>
-                                <td>₱1,000</td>
-                                <td>₱15,500</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="payroll-columns" aria-label="Payroll fields that are not yet calculated">
+                    <span>Gross pay</span>
+                    <span>Deductions</span>
+                    <span>Net pay</span>
                 </div>
-            </section>
+            </div>
+        </section>
 
-            <section class="content-section" id="deductions">
-                <h2>Common Deductions</h2>
-                <div class="deduction-list">
-                    <div class="deduction-item">
-                        <strong>SSS</strong>
-                        <span>Social Security contribution</span>
-                    </div>
-                    <div class="deduction-item">
-                        <strong>PhilHealth</strong>
-                        <span>Health insurance contribution</span>
-                    </div>
-                    <div class="deduction-item">
-                        <strong>Pag-IBIG</strong>
-                        <span>Housing savings contribution</span>
-                    </div>
-                    <div class="deduction-item">
-                        <strong>Withholding Tax</strong>
-                        <span>Applicable income tax</span>
-                    </div>
+        <!-- RULES: explains why deduction amounts are intentionally absent. -->
+        <section class="content-section rules-section" id="rules" aria-labelledby="rules-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-number">03 / CONFIGURATION</p>
+                    <h2 id="rules-title">Payroll rules</h2>
                 </div>
-            </section>
+            </div>
 
-            <footer class="dashboard-footer">
-                PayTrack Payroll Management System
-            </footer>
-        </main>
-    </div>
+            <div class="rules-copy">
+                <h3>No payroll rules have been provided.</h3>
+                <p>This project has no configured salary schedules, contribution rates, tax rules, or organization-specific deduction settings. Amounts are left out rather than guessed.</p>
+            </div>
+        </section>
+
+        <!-- LIMITS: makes the static prototype's behavior explicit. -->
+        <section class="content-section limits-section" id="limits" aria-labelledby="limits-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-number">04 / SCOPE</p>
+                    <h2 id="limits-title">What this prototype does—and does not do</h2>
+                </div>
+            </div>
+
+            <dl class="limits-list">
+                <div>
+                    <dt>Account access</dt>
+                    <dd>The login form checks for two non-empty fields. It does not verify a username or password.</dd>
+                </div>
+                <div>
+                    <dt>Employee data</dt>
+                    <dd>Records are not stored or retrieved. The register remains empty.</dd>
+                </div>
+                <div>
+                    <dt>Payroll calculation</dt>
+                    <dd>Salary, deductions, and take-home pay are not calculated.</dd>
+                </div>
+            </dl>
+        </section>
+
+        <footer class="dashboard-footer">
+            <span>PayTrack · Payroll interface prototype</span>
+            <a href="index.html">Return to login</a>
+        </footer>
+    </main>
 
 </body>
 </html>

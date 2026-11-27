@@ -1,179 +1,318 @@
-/* GENERAL: basic styles shared by the login and dashboard pages. */
+/* SHARED TOKENS: one brand color, restrained neutrals, and a small spacing scale. */
+:root {
+    --green: #174a3a;
+    --green-dark: #10382c;
+    --page: #f3f6f4;
+    --surface: #ffffff;
+    --ink: #1d2d26;
+    --muted: #52645b;
+    --line: #d7e1da;
+    --soft: #e8efea;
+    --focus: #d79a32;
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 48px;
+}
+
 * {
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    color: #243247;
-    background: #f3f5f8;
-    line-height: 1.5;
+    color: var(--ink);
+    background: var(--page);
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 1.55;
 }
 
 a {
+    color: inherit;
     text-decoration: none;
 }
 
-/* LOGIN PAGE: centers the login box on the screen. */
-.login-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    background: #eef2f6;
-}
-
-.login-page {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 15px;
-}
-
-.login-card {
-    width: 100%;
-    max-width: 390px;
-    padding: 35px;
-    background: white;
-    border: 1px solid #dce2e9;
-    border-radius: 8px;
-    text-align: center;
-}
-
-.brand-mark {
-    width: 58px;
-    height: 58px;
-    margin: 0 auto 18px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #174a3a;
-    color: white;
-    border-radius: 8px;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.eyebrow {
-    margin: 0 0 6px;
-    color: #527365;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.login-card h1 {
-    margin: 0;
-    color: #174a3a;
-    font-size: 32px;
-}
-
-.login-description {
-    margin: 8px 0 25px;
-    color: #687586;
-}
-
-.login-card form {
-    text-align: left;
-}
-
-.login-card label {
-    display: block;
-    margin: 14px 0 6px;
-    font-weight: bold;
-}
-
-.login-card input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #cbd4dc;
-    border-radius: 5px;
+button,
+input {
     font: inherit;
 }
 
-.login-card button {
-    width: 100%;
-    margin-top: 22px;
-    padding: 12px;
-    border: 0;
-    border-radius: 5px;
-    background: #174a3a;
-    color: white;
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+}
+
+::selection {
+    color: #ffffff;
+    background: var(--green);
+}
+
+/* LOGIN LAYOUT: the left panel explains the product; the right panel holds the form. */
+.login-layout {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+}
+
+.login-intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+    padding: 40px clamp(28px, 6vw, 88px) 32px;
+    color: #ffffff;
+    background: var(--green);
+}
+
+.brand-lockup,
+.sidebar-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    width: fit-content;
+    color: inherit;
+    font-size: 19px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.brand-mark {
+    width: 44px;
+    height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.intro-copy {
+    max-width: 600px;
+    margin: 56px 0;
+}
+
+.eyebrow,
+.form-kicker,
+.section-number {
+    margin: 0 0 12px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+}
+
+.eyebrow {
+    color: #d2e1d9;
+}
+
+.intro-copy h1 {
+    max-width: 590px;
+    margin: 0 0 20px;
+    font-size: clamp(36px, 4.5vw, 62px);
+    line-height: 1.08;
+    letter-spacing: -1.8px;
+}
+
+.intro-copy > p:last-child {
+    max-width: 480px;
+    margin: 0;
+    color: #e0ebe5;
     font-size: 16px;
-    font-weight: bold;
+}
+
+.page-flow {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    max-width: 520px;
+    margin: 0;
+    padding: 18px 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.3);
+    list-style: none;
+}
+
+.page-flow li {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.page-flow li span {
+    color: #c6d8ce;
+    font-size: 11px;
+    font-weight: 400;
+    font-variant-numeric: tabular-nums;
+}
+
+.intro-footnote {
+    margin: 28px 0 0;
+    color: #d2e1d9;
+    font-size: 12px;
+}
+
+.login-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 64px clamp(28px, 6vw, 88px) 24px;
+    background: var(--page);
+}
+
+.login-form-wrap {
+    width: 100%;
+    max-width: 430px;
+    margin: 0 auto;
+}
+
+.form-kicker {
+    color: var(--green);
+}
+
+.login-form-wrap h2 {
+    margin: 0 0 10px;
+    font-size: 32px;
+    line-height: 1.2;
+    letter-spacing: -0.8px;
+}
+
+.form-description {
+    max-width: 390px;
+    margin: 0 0 30px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.form-field input {
+    width: 100%;
+    min-height: 48px;
+    padding: 11px 13px;
+    border: 1px solid #b8c8be;
+    border-radius: 4px;
+    color: var(--ink);
+    background: var(--surface);
+}
+
+.form-field input::placeholder {
+    color: #64756c;
+    opacity: 1;
+}
+
+.login-form button {
+    min-height: 48px;
+    margin-top: 4px;
+    padding: 11px 18px;
+    border: 1px solid var(--green);
+    border-radius: 4px;
+    color: #ffffff;
+    background: var(--green);
+    font-weight: 700;
     cursor: pointer;
 }
 
-.login-card button:hover {
-    background: #23634e;
+.login-form button:hover {
+    background: var(--green-dark);
 }
 
-.login-note,
+.form-notice {
+    margin: 24px 0 0;
+    padding: 14px 16px;
+    border-left: 3px solid var(--green);
+    color: var(--muted);
+    background: #e8efea;
+    font-size: 12px;
+}
+
+.form-notice strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--ink);
+}
+
 .login-footer {
-    color: #788596;
-    font-size: 13px;
+    width: 100%;
+    max-width: 430px;
+    margin: 48px auto 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 11px;
 }
 
-.login-note {
-    margin: 20px 0 0;
-}
-
-.login-footer {
-    padding: 16px;
-    text-align: center;
-}
-
-/* DASHBOARD SIDEBAR: fixed keeps it visible while the page scrolls. */
-.dashboard-layout {
+/* DASHBOARD SIDEBAR: fixed positioning demonstrates CSS positioning on wide screens. */
+.dashboard-body {
     min-height: 100vh;
 }
 
 .sidebar {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 230px;
-    height: 100vh;
-    padding: 24px 18px;
+    inset: 0 auto 0 0;
+    z-index: 2;
+    width: 244px;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background: #174a3a;
-    color: white;
+    padding: 28px 20px 22px;
+    color: #ffffff;
+    background: var(--green);
 }
 
-.sidebar-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.small-mark {
+.sidebar-mark {
     width: 38px;
     height: 38px;
-    margin: 0;
-    background: white;
-    color: #174a3a;
-    font-size: 15px;
+    border-color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
 }
 
-.sidebar-label {
-    margin: 35px 0 10px;
-    color: #c2d5cd;
-    font-size: 11px;
-    font-weight: bold;
+.sidebar-caption {
+    margin: 38px 10px 12px;
+    color: #d2e1d9;
+    font-size: 10px;
+    font-weight: 700;
     letter-spacing: 1px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .sidebar-nav a,
 .logout-link {
-    display: block;
-    padding: 11px 10px;
-    color: white;
-    border-radius: 5px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 13px;
 }
 
 .sidebar-nav a:hover,
@@ -183,188 +322,384 @@ a {
 
 .logout-link {
     margin-top: auto;
+    padding-top: 14px;
     border-top: 1px solid #477665;
     border-radius: 0;
-    padding-top: 18px;
 }
 
-/* MAIN CONTENT: left margin prevents the sidebar from covering the page. */
+/* PAGE WIDTH: the left margin keeps the fixed navigation from covering content. */
 .dashboard-main {
-    margin-left: 230px;
-    padding: 32px;
+    width: min(100% - 244px, 1420px);
+    min-height: 100vh;
+    margin-left: 244px;
+    padding: 42px clamp(24px, 5vw, 72px) 24px;
 }
 
-/* POSITIONING EXAMPLE: relative is the reference for the absolute label. */
 .page-heading {
     position: relative;
-    margin-bottom: 30px;
-    padding: 28px;
-    background: white;
-    border: 1px solid #e0e5ec;
-    border-radius: 8px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 28px;
+    margin-bottom: 48px;
+    padding: 10px 250px 28px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.breadcrumb {
+    margin: 0 0 14px;
+    color: var(--muted);
+    font-size: 12px;
 }
 
 .page-heading h1 {
     margin: 0;
-    color: #174a3a;
-    font-size: 30px;
+    color: var(--green);
+    font-size: clamp(32px, 3vw, 42px);
+    line-height: 1.15;
+    letter-spacing: -1px;
 }
 
-.page-heading p:last-child {
-    margin-bottom: 0;
-    color: #687586;
-}
-
-.period-label {
-    position: absolute;
-    top: 25px;
-    right: 25px;
-    padding: 6px 10px;
-    background: #e8f0ec;
-    color: #174a3a;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: bold;
-}
-
-.content-section {
-    margin-bottom: 28px;
-}
-
-.content-section h2 {
-    margin-bottom: 5px;
-    color: #174a3a;
-    font-size: 21px;
-}
-
-.section-note {
-    margin-top: 0;
-    color: #788596;
+.page-summary {
+    max-width: 650px;
+    margin: 12px 0 0;
+    color: var(--muted);
     font-size: 14px;
 }
 
-/* SUMMARY CARDS: flex places the payroll totals in one row. */
-.summary-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 16px;
-}
-
-.summary-card {
-    flex: 1;
-    min-width: 150px;
-    padding: 20px;
-    background: white;
-    border: 1px solid #e0e5ec;
-    border-left: 4px solid #5c927b;
-    border-radius: 6px;
-}
-
-.summary-card p {
+.project-stamp {
+    position: absolute;
+    top: 18px;
+    right: 0;
     margin: 0;
-    color: #687586;
+    padding: 7px 0 7px 12px;
+    border-left: 2px solid var(--green);
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
 }
 
-.summary-card h3 {
-    margin: 8px 0 0;
-    color: #174a3a;
-    font-size: 25px;
+.content-section {
+    margin-bottom: 54px;
+    scroll-margin-top: 24px;
 }
 
-/* TABLES: used for employee records and payroll details. */
-.table-container {
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 18px;
+}
+
+.section-number {
+    margin-bottom: 6px;
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    color: var(--green);
+    font-size: 23px;
+    line-height: 1.25;
+    letter-spacing: -0.4px;
+}
+
+.section-context {
+    margin: 0 0 2px;
+    color: var(--muted);
+    font-size: 12px;
+    text-align: right;
+}
+
+/* TABLE: horizontal scrolling stays inside this region on narrow screens. */
+.table-shell {
     overflow-x: auto;
-    background: white;
-    border: 1px solid #e0e5ec;
-    border-radius: 6px;
+    border: 1px solid var(--line);
+    background: var(--surface);
 }
 
 table {
     width: 100%;
+    min-width: 650px;
     border-collapse: collapse;
     text-align: left;
 }
 
 th,
 td {
-    padding: 13px 15px;
-    border-bottom: 1px solid #e8ecf1;
+    padding: 15px 18px;
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
 }
 
 th {
-    background: #e8f0ec;
-    color: #174a3a;
+    color: var(--muted);
+    background: #edf2ee;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
 
-.deduction-list {
+td {
+    padding: 0;
+}
+
+.empty-state {
+    min-height: 150px;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    padding: 26px 24px;
+}
+
+.empty-rule {
+    width: 3px;
+    min-height: 56px;
+    flex: 0 0 3px;
+    background: var(--green);
+}
+
+.empty-state h3,
+.payroll-empty h3,
+.rules-copy h3 {
+    margin: 0 0 6px;
+    color: var(--ink);
+    font-size: 15px;
+}
+
+.empty-state p,
+.payroll-empty p,
+.rules-copy p {
+    max-width: 620px;
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+/* PAYROLL RUN: the blank fields make the missing configuration explicit. */
+.payroll-empty {
+    display: grid;
+    grid-template-columns: minmax(230px, 0.9fr) minmax(0, 1.1fr);
+    gap: 30px;
+    align-items: center;
+    padding: 26px 24px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+}
+
+.payroll-columns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 12px;
 }
 
-.deduction-item {
-    flex: 1;
-    min-width: 200px;
-    padding: 16px;
-    background: white;
-    border: 1px solid #e0e5ec;
-    border-radius: 6px;
+.payroll-columns span {
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border: 1px dashed #b8c8be;
+    color: var(--muted);
+    font-size: 11px;
 }
 
-.deduction-item strong,
-.deduction-item span {
-    display: block;
+.rules-copy {
+    max-width: 900px;
+    padding: 22px 24px;
+    border-left: 3px solid var(--green);
+    background: #e8efea;
 }
 
-.deduction-item strong {
-    color: #174a3a;
+.limits-list {
+    margin: 0;
+    border-top: 1px solid var(--line);
 }
 
-.deduction-item span {
-    margin-top: 4px;
-    color: #788596;
+.limits-list div {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.34fr) minmax(0, 1fr);
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.limits-list dt {
     font-size: 13px;
+    font-weight: 700;
+}
+
+.limits-list dd {
+    margin: 0;
+    color: var(--muted);
+    font-size: 12px;
 }
 
 .dashboard-footer {
-    padding: 20px 0;
-    color: #788596;
-    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 0 8px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: 11px;
 }
 
-/* MOBILE: sidebar moves above the dashboard content on narrow screens. */
-@media (max-width: 700px) {
+.dashboard-footer a {
+    color: var(--green);
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+/* MOBILE: navigation becomes a normal top section; tables scroll within their own shell. */
+@media (max-width: 760px) {
+    .login-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .login-intro {
+        min-height: auto;
+        padding: 26px 24px 24px;
+    }
+
+    .intro-copy {
+        margin: 38px 0 32px;
+    }
+
+    .intro-copy h1 {
+        max-width: 480px;
+        font-size: clamp(34px, 9vw, 46px);
+        letter-spacing: -1.2px;
+    }
+
+    .page-flow {
+        max-width: none;
+    }
+
+    .intro-footnote {
+        margin-top: 20px;
+    }
+
+    .login-panel {
+        min-height: 560px;
+        padding: 52px 24px 24px;
+    }
+
+    .login-footer {
+        margin-top: 40px;
+    }
+
     .sidebar {
         position: static;
         width: 100%;
-        height: auto;
+        min-height: 0;
+        padding: 18px 20px 14px;
     }
 
-    .sidebar-label {
-        margin-top: 20px;
+    .sidebar-caption {
+        margin: 18px 0 8px;
     }
 
     .sidebar-nav {
         display: flex;
+        flex-direction: row;
         flex-wrap: wrap;
+        gap: 4px;
+    }
+
+    .sidebar-nav a {
+        min-height: 44px;
+        padding: 9px 10px;
     }
 
     .logout-link {
+        min-height: 44px;
         margin-top: 12px;
+        padding: 10px 0 0;
     }
 
     .dashboard-main {
+        width: 100%;
         margin-left: 0;
-        padding: 18px;
+        padding: 28px 20px 20px;
     }
 
-    .period-label {
+    .page-heading {
+        margin-bottom: 36px;
+        padding: 0 0 22px;
+    }
+
+    .project-stamp {
         position: static;
-        display: inline-block;
-        margin-top: 12px;
+        align-self: flex-start;
+        margin-top: 6px;
     }
 
-    .login-card {
-        padding: 28px 22px;
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .section-context {
+        text-align: left;
+    }
+
+    .payroll-empty {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 22px 18px;
+    }
+
+    .limits-list div {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .dashboard-footer {
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 420px) {
+    .login-intro {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .login-panel {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .page-flow {
+        gap: 8px;
+    }
+
+    .page-flow li {
+        font-size: 12px;
+    }
+
+    .payroll-columns {
+        gap: 6px;
+    }
+
+    .payroll-columns span {
+        min-height: 62px;
+        padding: 8px;
+        font-size: 10px;
+    }
+}
+
+/* MOTION: remove smooth scrolling when the visitor prefers reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
     }
 }
